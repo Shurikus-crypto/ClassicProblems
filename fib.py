@@ -50,5 +50,20 @@ def fib5(n: int) -> int:
     return next
 
 
+# Генератор чисел Фибоначчи
+def fib6(n: int) -> int:
+    # специальный случай (возвращаем 0, но не покидаем функции - следующий вызов функции со след. строки)
+    yield 0                     # fib(0)
+
+    if n > 0:                   # fib(1)
+        yield 1
+
+    last: int = 0               # начальное значение fib(0) - уже прошли, см. выше
+    next: int = 1               # начальное значение fib(1) - уже прошли, см. выше
+    for _ in range(1, n):
+        last, next = next, next + last
+        yield next
+
+
 if __name__ == '__main__':
     print(fib5(50))

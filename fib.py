@@ -1,6 +1,7 @@
 # Вычисление чисел Фибоначчи
 from functools import lru_cache
-from typing import Dict
+from typing import Dict, Generator
+
 
 # Бесконечная рекурсия- нет базового случая
 
@@ -51,7 +52,7 @@ def fib5(n: int) -> int:
 
 
 # Генератор чисел Фибоначчи
-def fib6(n: int) -> int:
+def fib6(n: int) -> Generator[int, None, None]:
     # специальный случай (возвращаем 0, но не покидаем функции - следующий вызов функции со след. строки)
     yield 0                     # fib(0)
 
@@ -65,6 +66,7 @@ def fib6(n: int) -> int:
         yield next
 
 
+# Это вызов главной функции
 if __name__ == '__main__':
     print('Iterator = ', fib5(10))
     print('\n From generator = ')

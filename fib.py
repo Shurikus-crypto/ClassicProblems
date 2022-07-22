@@ -36,5 +36,16 @@ def fib4(n: int) -> int:                    # Точно такая же реа�
     return fib4(n-1) + fib4(n-2)
 
 
+# Итеративный способ
+def fib5(n: int) -> int:
+    if n == 0:
+        return n
+    last: int = 0
+    next: int = 1
+    for _ in range(1, n):
+        last, next = next, next + last
+    return next
+
+
 if __name__ == '__main__':
-    print(fib4(50))
+    print(fib5(50))

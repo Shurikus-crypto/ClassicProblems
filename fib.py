@@ -1,7 +1,8 @@
 # Вычисление чисел Фибоначчи
+from functools import lru_cache
+from typing import Dict
 
 # Бесконечная рекурсия- нет базового случая
-from typing import Dict
 
 
 def fib1(n: int) -> int:
@@ -27,5 +28,13 @@ def fib3(n: int) -> int:
     return memo[n]
 
 
+# Автоматическая мемоизация с помощью декоратора
+@lru_cache(maxsize=None)
+def fib4(n: int) -> int:                    # Точно такая же реализация, как в классической реализации
+    if n < 2:
+        return n
+    return fib4(n-1) + fib4(n-2)
+
+
 if __name__ == '__main__':
-    print(fib3(10))
+    print(fib4(50))

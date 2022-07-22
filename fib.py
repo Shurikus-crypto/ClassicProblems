@@ -44,6 +44,9 @@ def fib5(n: int) -> int:
     next: int = 1
     for _ in range(1, n):
         last, next = next, next + last
+        # new_next = next + last
+        # last = next
+        # next = new_next
     return next
 
 

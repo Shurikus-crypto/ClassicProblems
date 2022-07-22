@@ -38,10 +38,10 @@ def fib4(n: int) -> int:                    # Точно такая же реа�
 
 # Итеративный способ
 def fib5(n: int) -> int:
-    if n == 0:
+    if n == 0:                  # специальный случай
         return n
-    last: int = 0
-    next: int = 1
+    last: int = 0               # fib(0)
+    next: int = 1               # fib(1)
     for _ in range(1, n):
         last, next = next, next + last
         # new_next = next + last

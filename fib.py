@@ -66,4 +66,7 @@ def fib6(n: int) -> int:
 
 
 if __name__ == '__main__':
-    print(fib5(50))
+    print('Iterator = ', fib5(10))
+    print('\n From generator = ')
+    for i in fib6(10):
+        print(i)

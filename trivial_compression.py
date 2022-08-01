@@ -34,3 +34,6 @@ class CompressedGene:
             else:
                 raise ValueError(f'Invalid bits: {bits}')
         return gene[::-1]                                       # обращение строки
+
+    def __str__(self) -> str:                                   # строковое представление объекта
+        return self.decompress()

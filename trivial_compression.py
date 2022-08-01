@@ -1,4 +1,6 @@
 # Простейшее сжатие (битовая упаковка генов)
+from sys import getsizeof
+
 
 class CompressedGene:
     def __init__(self, gene: str) -> None:
@@ -37,3 +39,13 @@ class CompressedGene:
 
     def __str__(self) -> str:                                   # строковое представление объекта
         return self.decompress()
+
+
+if __name__ == '__main__':
+    original: str = "TAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATATAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATA" * 100
+
+    print(f'Original is {getsizeof(original)} bytes')
+    compressed: CompressedGene = CompressedGene(original)               # сжатие
+    print(f'Compressed is {getsizeof(compressed.bit_string)} bytes')
+    print(compressed)                                                   # строковое представление (распаковка)
+    print(f'Original and decompressed are the same: {(original == compressed.decompress())}')

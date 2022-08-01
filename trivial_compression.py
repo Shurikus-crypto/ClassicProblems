@@ -5,7 +5,7 @@ class CompressedGene:
         self._compress(gene)
 
     def _compress(self, gene: str) -> None:
-        self.bit_string = 1                         # начальная метка
+        self.bit_string: int = 1                    # начальная метка
         for nucleotide in gene.upper():
             self.bit_string <<= 2                   # сдвиг влево на два бита
             if nucleotide == "A":

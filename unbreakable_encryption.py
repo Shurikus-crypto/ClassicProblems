@@ -32,9 +32,19 @@ def encrypt(original: str) -> Tuple[int, int]:
     return dummy, encrypted
 
 
-def decrypt(key1:int, key2: int) -> str:
+def decrypt(key1: int, key2: int) -> str:
+    """  Дешифрует строку методом XOR
+
+         :param key1: ключ шифрования
+         :type key1: int
+
+         :param key2: зашифрованная строка (порядок не имеет значения)
+         :type key2: int
+         :return: оригинальная строка
+         :rtype: str
+    """
     decrypted: int = key1 ^ key2                                # обратная операция
-    temp: bytes = decrypted.to_bytes((decrypted.bit_length()+ 7) // 8, 'big')  # из целого в байты
+    temp: bytes = decrypted.to_bytes((decrypted.bit_length() + 7) // 8, 'big')  # из целого в байты
     return temp.decode()    # из байтов в строку
 
 

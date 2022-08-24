@@ -4,8 +4,14 @@ from typing import Tuple
 
 
 def random_key(length: int) -> int:
-    """" Функция возвращает одно целое случайное число,
-         размером => length байт """
+    """  Функция возвращает одно целое число,
+         образованное из n случайных байт.
+
+         :param length: количество байт
+         :type length: int
+         :return: образованное число
+         :rtype: int
+    """
     tb: bytes = token_bytes(length)
     # сейчас преобразуем эту строку в целое число
     return int.from_bytes(tb, 'big')

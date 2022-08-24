@@ -24,3 +24,13 @@ def decrypt(key1:int, key2: int) -> str:
     temp: bytes = decrypted.to_bytes((decrypted.bit_length()+ 7) // 8, 'big')  # из целого в байты
     return temp.decode()    # из байтов в строку
 
+
+def main(original: str):
+    key1, key2 = encrypt(original)
+    decrypted = decrypt(key1, key2)
+    print(decrypted)
+    print(decrypted == original)
+
+
+if __name__ == '__main__':
+    main('It work!')
